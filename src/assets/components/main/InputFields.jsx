@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 /* CSS */
 import './InputFields.css';
 
-const InputFields = ({ birthDate, onSetBirthDate, errorHandling }) => {
+const InputFields = ({ birthDate, onSetBirthDate, errorHandling, onSetOutputAge }) => {
   return (
-    <form className="form">
+    <form className="form" onSubmit={onSetOutputAge}>
       <div className="day">
-        <label htmlFor="day">DAY</label>
+        <label htmlFor="day" className={errorHandling.day.isError ? 'error' : ''}>
+          DAY
+        </label>
         <input
           type="number"
           min="1"
@@ -23,10 +25,12 @@ const InputFields = ({ birthDate, onSetBirthDate, errorHandling }) => {
             });
           }}
         />
-        <span className="error">Placeholder</span>
+        <span className="error">{errorHandling.day.isError && errorHandling.day.msg}</span>
       </div>
       <div className="month">
-        <label htmlFor="month">MONTH</label>
+        <label htmlFor="month" className={errorHandling.month.isError ? 'error' : ''}>
+          MONTH
+        </label>
         <input
           type="number"
           min="1"
@@ -42,10 +46,12 @@ const InputFields = ({ birthDate, onSetBirthDate, errorHandling }) => {
             });
           }}
         />
-        <span className="error">Placeholder</span>
+        <span className="error">{errorHandling.month.isError && errorHandling.month.msg}</span>
       </div>
       <div className="year">
-        <label htmlFor="year">YEAR</label>
+        <label htmlFor="year" className={errorHandling.year.isError ? 'error' : ''}>
+          YEAR
+        </label>
         <input
           type="number"
           min="1"
@@ -60,8 +66,9 @@ const InputFields = ({ birthDate, onSetBirthDate, errorHandling }) => {
             });
           }}
         />
-        <span className="error">Placeholder</span>
+        <span className="error">{errorHandling.year.isError && errorHandling.year.msg}</span>
       </div>
+      <input type="submit" hidden />
     </form>
   );
 };
@@ -70,6 +77,7 @@ InputFields.propTypes = {
   birthDate: PropTypes.object,
   onSetBirthDate: PropTypes.func,
   errorHandling: PropTypes.object,
+  onSetOutputAge: PropTypes.func,
 };
 
 export default InputFields;

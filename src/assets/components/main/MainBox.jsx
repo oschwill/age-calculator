@@ -12,16 +12,24 @@ const MainBox = () => {
     year: '',
   });
   const [outputAge, setOutputAge] = useState({
-    year: '--',
+    years: '--',
     months: '--',
     days: '--',
   });
 
   const [errorHandling, setErrorHandling] = useState({
-    day: false,
-    month: false,
-    year: false,
-    msg: '',
+    day: {
+      isError: false,
+      msg: '',
+    },
+    month: {
+      isError: false,
+      msg: '',
+    },
+    year: {
+      isError: false,
+      msg: '',
+    },
   });
 
   const handleSetBirthDate = (newBirthDate) => {
@@ -36,7 +44,9 @@ const MainBox = () => {
     console.log(newBirthDate);
   };
 
-  const handleSetOutputAge = () => {
+  const handleSetOutputAge = (e) => {
+    e.preventDefault();
+    console.log('submitted');
     // validate birtdate state ...!!!!
   };
 
@@ -47,8 +57,9 @@ const MainBox = () => {
           birthDate={birthDate}
           onSetBirthDate={handleSetBirthDate}
           errorHandling={errorHandling}
+          onSetOutputAge={handleSetOutputAge}
         />
-        <OutputField outputAge={outputAge} onSetOutputAge={handleSetOutputAge} />
+        <OutputField outputAge={outputAge} />
       </div>
     </main>
   );
