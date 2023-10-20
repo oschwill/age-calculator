@@ -1,0 +1,35 @@
+@font-face {
+  font-family: Poppins;
+  src: url('./assets/fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: PoppinsBold;
+  src: url('./assets/fonts/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: PoppinsCursiv;
+  src: url('./assets/fonts/Poppins-Italic.ttf');
+}
+
+:root {
+  --main-background-color: hsl(0, 0%, 86%);
+  --box-background-color: hsl(0, 0%, 100%);
+  --font-color-primary: hsl(0, 1%, 44%);
+  --font-color-secondary: hsl(259, 100%, 65%);
+  --font-color-tertiary: hsl(0, 0%, 8%);
+  --font-error-color: hsl(0, 100%, 67%);
+  --border-color: hsl(0, 0%, 94%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+}

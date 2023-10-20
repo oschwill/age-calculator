@@ -1,0 +1,36 @@
+.output {
+  display: flex;
+  flex-direction: column;
+}
+
+.output .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.output .top img {
+  cursor: pointer;
+  padding: 10px;
+  background-color: var(--font-color-secondary);
+  border-radius: 50%;
+}
+
+.output .top img:hover {
+  background-color: var(--font-color-tertiary);
+}
+
+.output .top hr {
+  background-color: var(--font-color-primary);
+  width: 100%;
+  height: 3px;
+}
+
+.output .bottom {
+  font-family: PoppinsBold, Arial, Helvetica, sans-serif;
+  font-size: 8rem;
+}
+
+.output .bottom .output-var-color {
+  color: var(--font-color-secondary);
+}
