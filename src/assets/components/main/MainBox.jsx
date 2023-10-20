@@ -5,6 +5,21 @@ import InputFields from './InputFields';
 import './MainBox.css';
 import OutputField from './OutputField';
 
+const defaultErrorHandlingObj = {
+  day: {
+    isError: false,
+    msg: '',
+  },
+  month: {
+    isError: false,
+    msg: '',
+  },
+  year: {
+    isError: false,
+    msg: '',
+  },
+};
+
 const MainBox = () => {
   const [birthDate, setBirthDate] = useState({
     day: '',
@@ -17,20 +32,7 @@ const MainBox = () => {
     days: '--',
   });
 
-  const [errorHandling, setErrorHandling] = useState({
-    day: {
-      isError: false,
-      msg: '',
-    },
-    month: {
-      isError: false,
-      msg: '',
-    },
-    year: {
-      isError: false,
-      msg: '',
-    },
-  });
+  const [errorHandling, setErrorHandling] = useState(defaultErrorHandlingObj);
 
   const handleSetBirthDate = (newBirthDate) => {
     if (
@@ -46,8 +48,17 @@ const MainBox = () => {
 
   const handleSetOutputAge = (e) => {
     e.preventDefault();
-    console.log('submitted');
+    console.log(e);
     // validate birtdate state ...!!!!
+    if (birthDate.day === '') {
+      setErrorHandling({
+        ...errorHandling,
+                  day.isError: true
+  
+      });
+      console.log(errorHandling);
+      return;
+    }
   };
 
   return (
