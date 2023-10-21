@@ -1,28 +1,33 @@
 .form {
   display: flex;
+  flex-direction: column;
+}
+
+.form .inner-form {
+  display: flex;
   gap: 1%;
 }
 
-.form .day,
-.form .month,
-.form .year {
+.form .inner-form .day,
+.form .inner-form .month,
+.form .inner-form .year {
   width: 25%;
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.form div label,
-.form div input::placeholder {
+.form .inner-form div label,
+.form .inner-form div input::placeholder {
   color: var(--font-color-primary);
 }
 
-.form div label {
+.form .inner-form div label {
   font-family: PoppinsBold, Arial, Helvetica, sans-serif;
   font-size: 1.6rem;
 }
 
-.form div input {
+.form .inner-form div input {
   font-family: PoppinsBold, Arial, Helvetica, sans-serif;
   font-size: 3.2rem;
   padding: 20px 10px;
@@ -30,9 +35,37 @@
   cursor: pointer;
 }
 
-.form div input:hover,
-.form div input:focus-visible {
+.form .inner-form div input:hover,
+.form .inner-form div input:focus-visible {
   outline: 1px solid var(--font-color-secondary);
+}
+
+.form .submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form .submit button {
+  background: none;
+  border: none;
+}
+
+.form .submit button img {
+  cursor: pointer;
+  padding: 10px;
+  background-color: var(--font-color-secondary);
+  border-radius: 50%;
+}
+
+.form .submit button img:hover {
+  background-color: var(--font-color-tertiary);
+}
+
+.form .submit hr {
+  background-color: var(--font-color-primary);
+  width: 100%;
+  height: 3px;
 }
 
 .error {

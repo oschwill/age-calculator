@@ -11,6 +11,7 @@ const MainBox = () => {
     month: '',
     year: '',
   });
+
   const [outputAge, setOutputAge] = useState({
     years: '--',
     months: '--',
@@ -34,7 +35,7 @@ const MainBox = () => {
         <InputFields
           birthDate={birthDate}
           onSetBirthDate={handleSetBirthDate}
-          onSetOutPutAge={setOutputAge}
+          onSetOutputAge={setOutputAge}
         />
         <OutputField outputAge={outputAge} />
       </div>
