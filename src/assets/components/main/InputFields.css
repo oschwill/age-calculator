@@ -36,5 +36,10 @@
 }
 
 .error {
-  color: var(--font-error-color);
+  font-family: PoppinsBold, Arial, Helvetica, sans-serif;
+  color: var(--font-error-color) !important;
+}
+
+.error-border {
+  border: 1px solid var(--font-error-color);
 }
