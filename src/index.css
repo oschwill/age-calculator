@@ -21,6 +21,7 @@
   --font-color-tertiary: hsl(0, 0%, 8%);
   --font-error-color: hsl(0, 100%, 67%);
   --border-color: hsl(0, 0%, 94%);
+  --border-color-secondary: hsl(0, 0%, 86%);
 }
 
 * {
@@ -32,4 +33,46 @@
 html {
   font-size: 62.5%;
   font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 768px) {
+  main .wrapper {
+    width: 95%;
+  }
+
+  main .wrapper .output .bottom {
+    font-size: 6rem;
+  }
+
+  .form {
+    margin-bottom: 50px;
+  }
+
+  .form .inner-form {
+    gap: 2.5%;
+    margin-bottom: 15%;
+  }
+
+  .form .inner-form div input {
+    padding: 10px 5px;
+    font-size: 2.75rem;
+  }
+
+  .form .inner-form .day,
+  .form .inner-form .month,
+  .form .inner-form .year {
+    width: 100%;
+  }
+
+  .form .submit {
+    position: relative;
+  }
+
+  .form .submit button {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
 }

@@ -1,23 +1,21 @@
-// export const calculateAge = (_inputYear, _inputMonth, _inputDay, _currentDate) => {
-export const calculateAge = (_inputDate, _currentDate) => {
-  // const currentYear = _currentDate.getFullYear();
-  // const currentmonth = _currentDate.getMonth() + 1;
-  // const currentday = _currentDate.getDate();
+const MaxDays = [31, 30, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-  // const years = currentYear - _inputYear;
-  // const months = currentmonth - _inputMonth;
-  // const days = currentday - _inputDay;
-  let calcTimeStamp = _currentDate - _inputDate;
+export const calculateAge = (_birthDate, _currentDate) => {
+  let age_dt = new Date(Date.now() - _birthDate.getTime());
 
-  let newDateTime = new Date(calcTimeStamp);
+  let years = Math.abs(age_dt.getUTCFullYear() - 1970);
+  let months = Math.abs(age_dt.getUTCMonth());
+  let days = 0;
 
-  console.log(newDateTime.getFullYear());
+  if (_birthDate.getDate() <= _currentDate.getDate()) {
+    days = _currentDate.getDate() - _birthDate.getDate();
+  } else {
+    days = MaxDays[_birthDate.getMonth()] + _currentDate.getDate() - _birthDate.getDate();
+  }
 
-  // console.log(_inputDate.getTime());
-  // console.log(_inputDate);
-  // return {
-  //   years,
-  //   months,
-  //   days,
-  // };
+  return {
+    years,
+    months,
+    days,
+  };
 };

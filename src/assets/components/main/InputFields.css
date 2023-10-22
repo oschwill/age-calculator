@@ -28,11 +28,15 @@
 }
 
 .form .inner-form div input {
+  border: none;
+
+  border: 1px solid var(--border-color-secondary);
   font-family: PoppinsBold, Arial, Helvetica, sans-serif;
   font-size: 3.2rem;
   padding: 20px 10px;
   width: 100%;
   cursor: pointer;
+  border-radius: 15px;
 }
 
 .form .inner-form div input:hover,
@@ -53,7 +57,7 @@
 
 .form .submit button img {
   cursor: pointer;
-  padding: 10px;
+  padding: 20px;
   background-color: var(--font-color-secondary);
   border-radius: 50%;
 }
@@ -63,7 +67,8 @@
 }
 
 .form .submit hr {
-  background-color: var(--font-color-primary);
+  border: none;
+  background-color: var(--border-color-secondary);
   width: 100%;
   height: 3px;
 }

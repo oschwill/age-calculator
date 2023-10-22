@@ -33,8 +33,11 @@ const InputFields = ({ birthDate, onSetBirthDate, onSetOutputAge }) => {
 
   const handleSetOutputAge = (e) => {
     e.preventDefault();
+
     // Reset ErrorHandler
     setErrorHandling(defaultErrorHandlingObj);
+    isValid = true;
+    isEmpty = false;
 
     // check if empty
     if (birthDate.day === '' || birthDate.month === '' || birthDate.year === '') {
@@ -69,17 +72,13 @@ const InputFields = ({ birthDate, onSetBirthDate, onSetOutputAge }) => {
     }
 
     if (!isValid || isEmpty) {
-      isValid = !isValid;
-      isEmpty = !isEmpty;
       return;
     }
 
     // Calculate Age
-    // const outPutAge = calculateAge(birthDate.year, birthDate.month, birthDate.day, currentDate);
-    const outPutAge = calculateAge(date.getTime(), currentDate.getTime());
+    const outPutAge = calculateAge(date, currentDate);
 
     // Set Output
-    console.log(outPutAge);
     onSetOutputAge(outPutAge);
   };
 
@@ -135,7 +134,7 @@ const InputFields = ({ birthDate, onSetBirthDate, onSetOutputAge }) => {
           <input
             type="number"
             min="1"
-            placeholder="DD"
+            placeholder="YYYY"
             id="year"
             value={birthDate.year}
             onChange={(e) => {
